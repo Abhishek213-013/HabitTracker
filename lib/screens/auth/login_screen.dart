@@ -14,6 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _passwordController = TextEditingController();
   bool _isLoading = false;
 
+  /// Handles user login
   Future<void> _login() async {
     final authProvider = Provider.of<AuthProvider>(context, listen: false);
     setState(() => _isLoading = true);
@@ -48,48 +49,48 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Welcome back text
+                // Welcome text
                 Text(
                   "Welcome Champ😎",
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF4CAF50), // Green color
+                    color: const Color(0xFF4CAF50),
                   ),
                 ),
                 const SizedBox(height: 20),
 
-                // Larger Application Logo
+                // App logo
                 const CircleAvatar(
-                  radius: 80, // Increased from 60
+                  radius: 80,
                   backgroundColor: Colors.transparent,
                   backgroundImage: AssetImage('assets/Logo.png'),
                 ),
                 const SizedBox(height: 40),
 
-                // Larger Email Input Field
+                // Email input
                 SizedBox(
-                  width: 350, // Increased from 300
+                  width: 350,
                   child: TextField(
                     controller: _emailController,
                     decoration: InputDecoration(
                       labelText: "Email",
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12), // Slightly more rounded
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                      prefixIcon: const Icon(Icons.email, size: 24), // Larger icon
-                      contentPadding: const EdgeInsets.symmetric(
-                          vertical: 18, horizontal: 18), // Increased padding
+                      prefixIcon: const Icon(Icons.email, size: 24),
+                      contentPadding:
+                          const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
                     ),
                     keyboardType: TextInputType.emailAddress,
-                    style: const TextStyle(fontSize: 18), // Larger text
+                    style: const TextStyle(fontSize: 18),
                   ),
                 ),
                 const SizedBox(height: 24),
 
-                // Larger Password Input Field
+                // Password input
                 SizedBox(
-                  width: 350, // Increased from 300
+                  width: 350,
                   child: TextField(
                     controller: _passwordController,
                     decoration: InputDecoration(
@@ -97,50 +98,50 @@ class _LoginScreenState extends State<LoginScreen> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      prefixIcon: const Icon(Icons.lock, size: 24), // Larger icon
-                      contentPadding: const EdgeInsets.symmetric(
-                          vertical: 18, horizontal: 18),
+                      prefixIcon: const Icon(Icons.lock, size: 24),
+                      contentPadding:
+                          const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
                     ),
                     obscureText: true,
-                    style: const TextStyle(fontSize: 18), // Larger text
+                    style: const TextStyle(fontSize: 18),
                   ),
                 ),
                 const SizedBox(height: 32),
 
-                // Larger Login Button
+                // Login button
                 SizedBox(
-                  width: 350, // Increased from 300
-                  height: 60, // Increased from 50
+                  width: 350,
+                  height: 60,
                   child: _isLoading
                       ? const Center(
-                    child: CircularProgressIndicator(
-                      strokeWidth: 3,
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                          Color(0xFF2196F3)),
-                    ),
-                  )
+                          child: CircularProgressIndicator(
+                            strokeWidth: 3,
+                            valueColor:
+                                AlwaysStoppedAnimation<Color>(Color(0xFF2196F3)),
+                          ),
+                        )
                       : ElevatedButton(
-                    onPressed: _login,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF64B5F6), // Light Blue color
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      elevation: 5,
-                    ),
-                    child: const Text(
-                      "LOGIN",
-                      style: TextStyle(
-                        fontSize: 18, // Larger text
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
+                          onPressed: _login,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF64B5F6),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            elevation: 5,
+                          ),
+                          child: const Text(
+                            "LOGIN",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                 ),
                 const SizedBox(height: 24),
 
-                // Register Option
+                // Navigate to register screen
                 TextButton(
                   onPressed: () {
                     Navigator.pushReplacementNamed(context, '/register');
@@ -148,13 +149,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text.rich(
                     TextSpan(
                       text: "You don't have an account 😟? ",
-                      style: const TextStyle(
-                          color: Colors.grey, fontSize: 16), // Slightly larger
+                      style: const TextStyle(color: Colors.grey, fontSize: 16),
                       children: [
                         TextSpan(
                           text: "Register",
                           style: TextStyle(
-                            color: const Color(0xFF64B5F6), // Light Blue color
+                            color: const Color(0xFF64B5F6),
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
                           ),
