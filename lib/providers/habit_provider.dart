@@ -13,7 +13,7 @@ class HabitProvider extends ChangeNotifier {
   List<HabitModel> _habits = [];
   List<HabitModel> get habits => _habits;
 
-  // Fetch habits from Firestore
+  /// Fetch habits from Firestore and update state
   void fetchHabits() {
     _firestoreService.getHabits(userId).listen((habitList) {
       _habits = habitList;
@@ -21,24 +21,24 @@ class HabitProvider extends ChangeNotifier {
     });
   }
 
-  // Add or update habit
+  /// Add a new habit or update an existing one
   Future<void> addOrUpdateHabit(HabitModel habit) async {
     await _firestoreService.saveHabit(userId, habit);
-    // Firestore listener will auto-update _habits
+    // Updates will be reflected automatically via listener
   }
 
-  // Delete habit
+  /// Delete a habit by ID
   Future<void> deleteHabit(String habitId) async {
     await _firestoreService.deleteHabit(userId, habitId);
   }
 
-  // Toggle completion for specific date
+  /// Toggle completion status of a habit for a specific date
   Future<void> toggleHabitDate(HabitModel habit, DateTime date) async {
     if (habit.completedDates.any((d) =>
-    d.year == date.year && d.month == date.month && d.day == date.day)) {
+        d.year == date.year && d.month == date.month && d.day == date.day)) {
       // Remove date if already completed
       habit.completedDates.removeWhere((d) =>
-      d.year == date.year && d.month == date.month && d.day == date.day);
+          d.year == date.year && d.month == date.month && d.day == date.day);
     } else {
       // Add date if not completed
       habit.completedDates.add(date);
@@ -46,21 +46,21 @@ class HabitProvider extends ChangeNotifier {
     await _firestoreService.saveHabit(userId, habit);
   }
 
-  // Mark habit as complete for today (kept for backward compatibility)
+  /// Mark habit as complete for today
   Future<void> toggleHabitCompletion(HabitModel habit) async {
     await toggleHabitDate(habit, DateTime.now());
   }
 
-  // Get habits for a specific week
+  /// Get all habits completed within a given week
   List<HabitModel> getHabitsForWeek(DateTime weekStart) {
     return _habits.where((habit) {
       return habit.completedDates.any((date) =>
-      date.isAfter(weekStart) &&
+          date.isAfter(weekStart) &&
           date.isBefore(weekStart.add(const Duration(days: 7))));
     }).toList();
   }
 
-  // Get completion rate for all habits
+  /// Calculate average completion rate across all habits
   double get overallCompletionRate {
     if (_habits.isEmpty) return 0.0;
 
