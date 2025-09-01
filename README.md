@@ -36,6 +36,12 @@ Powered by **Firebase**, it supports authentication and cloud storage for your h
 |---------------------------------|-------------------------------|
 | ![Light Mode](assets/Light.jpg) | ![Dark Mode](assets/Dark.jpg) |
 
+###Firebase
+[Firebase_1](assets/Firebase_1.jpg)
+[Firebase_2](assets/Firebase_2.jpg)
+[Firebase_3](assets/Firebase_3.jpg)
+[Firebase_4](assets/Firebase_4.jpg)
+
 ---
 
 ## 🚀 Getting Started
