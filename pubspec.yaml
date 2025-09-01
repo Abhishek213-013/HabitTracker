@@ -1,0 +1,50 @@
+name: habittrackingapp
+description: A Firebase-powered habit tracking app with offline prefs and motivational quotes.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Firebase
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.4
+
+  # State management
+  provider: ^6.1.2
+
+  # Local storage (preferences)
+  shared_preferences: ^2.3.2
+
+  # HTTP (quotes API)
+  http: ^1.2.2
+
+  # Charts for progress visualization
+  fl_chart: ^0.69.0
+
+  # Utils / UI
+  intl: ^0.19.0
+  flutter_svg: ^2.0.10+1
+  google_fonts: ^6.2.1
+
+  # Routing (optional; can use Navigator 2.0 later)
+  go_router: ^14.2.7
+  share_plus: ^10.1.2
+  flutter_staggered_animations: ^1.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/images/
+    - assets/quotes/

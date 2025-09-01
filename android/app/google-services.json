@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "949836122742",
+    "project_id": "habittrackingapp-41dc1",
+    "storage_bucket": "habittrackingapp-41dc1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949836122742:android:e886f5f2cd4c25c2c66d57",
+        "android_client_info": {
+          "package_name": "com.abhishek.habittrackingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnyK2QdgW-J21ywyLd2gsUDnfGOYek6sc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
